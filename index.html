@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sequoia Road Trip · Aug 6–9, 2026</title>
+<meta name="description" content="A 4-day Tesla road trip from Los Angeles to Sequoia National Park.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Noto+Serif+TC:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf9f5; --card:#ffffff; --ink:#1f2422; --ink2:#5c635d; --line:#e7e5db;
+  --accent:#3f7d4e; --accent-soft:#e7f1e8; --blue:#1d6fb8; --blue-soft:#e7f0f9;
+  --amber:#9a6212; --amber-soft:#f8eed8; --coral:#b14a2a; --coral-soft:#f7e7df;
+  --shadow:0 1px 2px rgba(20,30,40,.04),0 8px 24px rgba(20,30,40,.06);
+  --radius:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+:lang(zh-Hant){line-height:1.75}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:Fraunces,"Noto Serif TC",Georgia,serif;font-weight:600;letter-spacing:-.01em;margin:0}
+
+.langtoggle{position:fixed;top:14px;right:16px;z-index:80;display:flex;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.32);border-radius:999px;padding:3px;backdrop-filter:blur(8px);box-shadow:0 2px 10px rgba(0,0,0,.12)}
+.langtoggle.scrolled{background:var(--card);border-color:var(--line);box-shadow:var(--shadow)}
+.langtoggle button{border:none;background:transparent;color:#fff;font-family:inherit;font-size:13px;font-weight:600;padding:6px 13px;border-radius:999px;cursor:pointer;line-height:1.2;transition:all .15s}
+.langtoggle.scrolled button{color:var(--ink2)}
+.langtoggle button.active{background:#fff;color:#173a22}
+.langtoggle.scrolled button.active{background:var(--accent);color:#fff}
+
+.hero{position:relative;overflow:hidden;color:#fff;background:#1a3322}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.42}
+.hero-grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,28,18,.5),rgba(12,28,18,.85))}
+.hero-inner{position:relative;padding:64px 0 52px}
+.eyebrow{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#cfe3d4;font-weight:600;margin-bottom:14px}
+.hero h1{font-size:clamp(32px,5.5vw,56px);line-height:1.05;margin-bottom:16px}
+.hero .sub{font-size:17px;color:#e8efe9;max-width:600px}
+.hero-stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.stat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(4px);padding:9px 15px;border-radius:999px;font-size:13.5px;font-weight:500}
+
+section{padding:40px 0}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:20px;flex-wrap:wrap}
+.sec-head h2{font-size:27px}
+.sec-head p{margin:0;color:var(--ink2);font-size:14px}
+
+.heads{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:6px 22px 18px;margin-top:-34px;position:relative;z-index:3}
+.heads h3{font-size:18px;padding:18px 0 4px;display:flex;align-items:center;gap:9px}
+.heads .lead{color:var(--ink2);font-size:13.5px;margin:0 0 12px}
+.flaglist{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.flag{border-radius:14px;padding:12px 14px;font-size:13.5px;line-height:1.55}
+.flag b{display:block;margin-bottom:2px;font-weight:600}
+.f-amber{background:var(--amber-soft);color:#6c460c}
+.f-coral{background:var(--coral-soft);color:#83321a}
+.f-blue{background:var(--blue-soft);color:#15517f}
+.f-green{background:var(--accent-soft);color:#255f36}
+
+.snap-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px}
+.snap-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}
+.snap-card .lab{font-size:12px;color:var(--ink2);margin-bottom:6px;font-weight:500}
+.snap-card .val{font-size:21px;font-weight:600;font-family:Fraunces,serif}
+.snap-card .sub{font-size:11.5px;color:var(--ink2);margin-top:3px}
+
+.daynav{position:sticky;top:0;z-index:20;background:rgba(250,249,245,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.daynav .wrap{display:flex;gap:6px;overflow-x:auto;padding:10px 20px;scrollbar-width:none}
+.daynav .wrap::-webkit-scrollbar{display:none}
+.daynav a{flex:0 0 auto;font-size:13px;font-weight:500;color:var(--ink2);text-decoration:none;padding:7px 13px;border-radius:999px;border:1px solid transparent;white-space:nowrap}
+.daynav a:hover{background:var(--card);border-color:var(--line);color:var(--ink)}
+
+.day{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:22px;overflow:hidden;scroll-margin-top:64px}
+.day-head{display:flex;align-items:center;gap:14px;padding:18px 22px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.day-badge{flex:0 0 auto;width:54px;height:54px;border-radius:14px;background:var(--accent-soft);color:var(--accent);display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:600;line-height:1}
+.day-badge .d{font-size:20px;font-family:Fraunces,serif}
+.day-badge .m{font-size:10px;text-transform:uppercase;letter-spacing:.05em;margin-top:2px}
+.day-head .ttl{flex:1;min-width:180px}
+.day-head .ttl h3{font-size:20px}
+.day-head .ttl .wd{font-size:12.5px;color:var(--ink2);font-weight:500;margin-top:2px}
+.drive{flex:0 0 auto;font-size:12.5px;color:var(--ink2);background:var(--bg);border:1px solid var(--line);padding:7px 12px;border-radius:999px;display:flex;align-items:center;gap:6px}
+.day-body{padding:20px 22px}
+.route{font-size:13.5px;color:var(--ink2);margin:0 0 16px;line-height:1.65}
+.routeflag{margin:0 0 16px;border-radius:12px;padding:11px 14px;font-size:13px;line-height:1.55}
+.subhead{font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2);margin:18px 0 11px}
+.subhead:first-child{margin-top:0}
+
+.items{display:grid;grid-template-columns:repeat(auto-fill,minmax(212px,1fr));gap:14px}
+.card{position:relative;text-align:left;border:1px solid var(--line);background:var(--card);border-radius:14px;overflow:hidden;cursor:pointer;padding:0;font-family:inherit;transition:transform .14s ease,box-shadow .14s ease;width:100%}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:#d8d5cc}
+.card .thumb{aspect-ratio:16/10;background:#dfe6e0 center/cover no-repeat;position:relative}
+.card.noimg .thumb{background:linear-gradient(135deg,#3f7d4e,#1a3322)}
+.card.noimg .thumb::after{content:attr(data-name);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:600;padding:10px;text-align:center}
+.card .cbody{padding:11px 13px 13px}
+.card .cname{font-size:14px;font-weight:600;line-height:1.3}
+.card .ctype{font-size:11.5px;color:var(--ink2);margin-top:3px}
+.card .cdist{font-size:11px;color:var(--ink2);margin-top:6px;display:flex;align-items:center;gap:4px}
+.card .ccost{display:inline-block;margin-top:8px;font-size:11.5px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:3px 9px;border-radius:999px}
+.pill{position:absolute;top:9px;left:9px;font-size:10.5px;font-weight:600;padding:3px 9px;border-radius:999px;background:rgba(26,51,34,.85);color:#fff;backdrop-filter:blur(3px)}
+.items.compact{grid-template-columns:repeat(auto-fill,minmax(172px,1fr));gap:11px}
+.items.compact .card .thumb{aspect-ratio:16/9}
+.items.compact .card .cname{font-size:13px}
+
+.stay{display:flex;gap:16px;background:var(--bg);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;text-align:left;padding:0;font-family:inherit;width:100%;transition:border-color .14s;margin-bottom:10px}
+.stay:hover{border-color:#cdd6d0}
+.stay .hthumb{flex:0 0 150px;background:#dfe6e0 center/cover no-repeat;min-height:118px}
+.stay.noimg .hthumb{background:linear-gradient(135deg,#b06a2a,#1a3322)}
+.stay .hbody{padding:14px 16px 14px 0;flex:1;min-width:0}
+.stay .hname{font-size:15px;font-weight:600}
+.stay .hmeta{font-size:12.5px;color:var(--ink2);margin-top:3px}
+.stay .hprice{font-size:13px;font-weight:600;color:var(--blue);margin-top:8px}
+.stay .hpark{font-size:12px;color:var(--ink2);margin-top:7px;display:flex;gap:6px;align-items:flex-start}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--amber-soft);color:var(--amber);margin-bottom:8px}
+
+.prac-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.prac{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow)}
+.prac h4{margin:0 0 7px;font-size:14px;font-family:Inter,"Noto Serif TC";font-weight:600;display:flex;align-items:center;gap:7px}
+.prac p{margin:0;font-size:13px;color:var(--ink2);line-height:1.6}
+
+.modal-bg{position:fixed;inset:0;background:rgba(15,25,18,.55);backdrop-filter:blur(3px);display:none;align-items:flex-start;justify-content:center;z-index:100;padding:28px 16px;overflow-y:auto}
+.modal-bg.open{display:flex}
+.modal{background:var(--card);border-radius:20px;max-width:620px;width:100%;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3);animation:pop .18s ease}
+@keyframes pop{from{transform:translateY(10px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal .mimg{aspect-ratio:16/9;background:#dfe6e0 center/cover no-repeat;position:relative}
+.modal .mimg.noimg{background:linear-gradient(135deg,#3f7d4e,#1a3322)}
+.mclose{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;border:none;background:rgba(15,25,18,.6);color:#fff;font-size:19px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1}
+.mbody{padding:20px 24px 24px}
+.mbody .mtype{font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--accent)}
+.mbody h3{font-size:23px;margin:5px 0 10px}
+.mmeta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.mmeta span{font-size:12.5px;font-weight:600;padding:5px 11px;border-radius:999px;background:var(--bg);border:1px solid var(--line);color:var(--ink)}
+.mmeta .mcost{background:var(--accent-soft);border-color:transparent;color:#255f36}
+.mbody .mdesc{font-size:14.5px;color:#333a35;line-height:1.7;margin:0 0 14px}
+.mbody .mpark{font-size:13px;color:var(--ink2);background:var(--bg);border:1px solid var(--line);border-radius:11px;padding:10px 13px;margin-bottom:14px;line-height:1.55}
+.mactions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.btn{font-size:13px;font-weight:600;padding:10px 15px;border-radius:11px;text-decoration:none;display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn:hover{filter:brightness(.97)}
+.mmap{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#eef1ee}
+.mmap iframe{width:100%;height:230px;border:0;display:block}
+
+footer{padding:40px 0 60px;text-align:center;color:var(--ink2);font-size:13px}
+footer .fdot{color:var(--accent)}
+@media(max-width:560px){
+  .stay{flex-direction:column}
+  .stay .hthumb{flex:none;width:100%;aspect-ratio:16/9;min-height:0}
+  .stay .hbody{padding:0 16px 16px}
+  .hero-inner{padding:56px 0 40px}
+}
+</style>
+</head>
+<body>
+
+<div class="langtoggle" id="langToggle">
+  <button data-l="zh">中文</button><button data-l="en">EN</button>
+</div>
+
+<header class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-grad"></div>
+  <div class="wrap hero-inner" id="heroInner"></div>
+</header>
+
+<div class="wrap"><div class="heads" id="heads"></div></div>
+<section id="snap"><div class="wrap" id="snapWrap"></div></section>
+<nav class="daynav"><div class="wrap" id="daynav"></div></nav>
+<section style="padding-top:30px"><div class="wrap" id="days"></div></section>
+<section id="practical"><div class="wrap" id="pracWrap"></div></section>
+<footer><div class="wrap" id="footer"></div></footer>
+
+<div class="modal-bg" id="modalBg">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="mimg" id="mImg"><button class="mclose" id="mClose" aria-label="Close">×</button></div>
+    <div class="mbody">
+      <div class="mtype" id="mType"></div>
+      <h3 id="mName"></h3>
+      <div class="mmeta" id="mMeta"></div>
+      <p class="mdesc" id="mDesc"></p>
+      <div class="mpark" id="mPark" style="display:none"></div>
+      <div class="mactions" id="mActions"></div>
+      <div class="mmap" id="mMap"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ===== STATE ===== */
+let LANG='zh';
+const MNUM={Aug:8};
+const p = o => (o && o[LANG]!=null) ? o[LANG] : (o?o.en:'');
+const dz = (o,f) => (LANG==='zh' && o[f+'_zh']!=null) ? o[f+'_zh'] : o[f];
+
+/* ===== IMAGES (confirmed Commons originals; JS serves fast thumbs w/ fallback) ===== */
+const IMG={
+  crescent:"https://upload.wikimedia.org/wikipedia/commons/a/af/Sequoia_from_Crescent_Meadow_%2819747514991%29.jpg",
+  charger:"https://upload.wikimedia.org/wikipedia/commons/6/6d/Tesla_Supercharger_Inyokern_California_2026_dllu.jpg",
+  kaweah:"https://upload.wikimedia.org/wikipedia/commons/c/c4/KaweahRiver.jpg",
+  terminus:"https://upload.wikimedia.org/wikipedia/commons/f/f2/2006_12_29_-_Terminus_Dam_%282%29.JPG",
+  threeRivers:"https://upload.wikimedia.org/wikipedia/commons/6/6a/Three_Rivers_CA.JPG",
+  foothills:"https://upload.wikimedia.org/wikipedia/commons/9/98/Foothills_Visitor_Center.JPG",
+  tunnelRock:"https://upload.wikimedia.org/wikipedia/commons/e/ef/Tunnel_Rock.JPG",
+  hospital:"https://upload.wikimedia.org/wikipedia/commons/c/c8/Sequoia_National_Park_-_Hospital_Rock_petroglyphs.JPG",
+  gfMuseum:"https://upload.wikimedia.org/wikipedia/commons/b/be/Sequoia_National_Park_-_Giant_Forest_Museum.JPG",
+  beetle:"https://upload.wikimedia.org/wikipedia/commons/3/3e/Beetle_Rock_Sunset%2C_Sequoia_National_Park.jpg",
+  bigTrees:"https://upload.wikimedia.org/wikipedia/commons/a/ae/Sierra_redwoods%2C_Big_Trees_Trail%2C_Sequoia_National_Park.jpg",
+  moro:"https://upload.wikimedia.org/wikipedia/commons/4/41/Stairs_on_Moro_Rock_with_People_2013.jpg",
+  tunnelLog:"https://upload.wikimedia.org/wikipedia/commons/0/0d/Sequoia_Tunnel_Log_P4260934.jpg",
+  sherman:"https://upload.wikimedia.org/wikipedia/commons/d/d0/General_Sherman_Tree_in_Sequoia_National_Park_-_June_2022.jpg",
+  lodgepole:"https://upload.wikimedia.org/wikipedia/commons/9/9c/Lodgepole_is_a_large_campground_with_a_variety_of_sites_that_are_walking_distance_from_the_market%2C_visitor_center_and_hiking_%28f0f06d36-1dd8-b71b-0b74-8131d1b67b64%29.jpg",
+  tokopah:"https://upload.wikimedia.org/wikipedia/commons/1/14/Tokopah_Falls%2C_Sequoia_and_Kings_Canyon_National_Parks_SEKI4542.jpg",
+  grant:"https://upload.wikimedia.org/wikipedia/commons/6/67/General_Grant_Tree_in_Kings_Canyon_National_Park_June_2022.jpg",
+  grantGrove:"https://upload.wikimedia.org/wikipedia/commons/e/ec/USA%2C_Kalifornie%2C_Sequoia_The_General_Grant.JPG",
+  kingsView:"https://upload.wikimedia.org/wikipedia/commons/1/11/ViewFromKingsCanyon.JPG",
+  exeter:"https://upload.wikimedia.org/wikipedia/commons/a/ae/2009-0725-CA-Exeter.jpg"
+};
+
+/* ===== UI STRINGS ===== */
+const UI={
+  hero:{
+    eyebrow:{en:'California · Summer 2026', zh:'加州 · 2026 年夏'},
+    h1:{en:'To the giant trees<br>and back — four days.', zh:'四天，前往<br>巨杉之地。'},
+    sub:{en:'Los Angeles → the Tejon & Visalia Superchargers → Three Rivers → Sequoia & Kings Canyon. Tap any stop for photos, drive time, costs and a map.',
+         zh:'洛杉磯 → Tejon 與 Visalia 超級充電站 → Three Rivers → Sequoia 與 Kings Canyon。點擊任何一站即可查看照片、車程、費用與地圖。'},
+    stats:{en:['📅 Aug 6–9, 2026 · 4 days','🚗 ~230 mi each way','🔋 Tesla · 2 charge stops','🌲 Sequoia & Kings Canyon'],
+           zh:['📅 2026年8月6–9日 · 4天','🚗 單程約 230 英里','🔋 Tesla · 2 次充電','🌲 Sequoia 與 Kings Canyon']}
+  },
+  heads:{
+    title:{en:'⚠️ Read first — the Tesla & park essentials', zh:'⚠️ 出發前必看 — Tesla 與國家公園要點'},
+    lead:{en:'A few things that shape the whole trip:', zh:'幾個影響整趟行程的重點：'},
+    flags:[
+      {cls:'f-amber', en:{b:'Charge to 100% at Visalia', body:'There is essentially no Supercharging in Three Rivers or inside the park, and the climb burns range fast. Top off fully at the Valley Fuel Travel Plaza before heading up.'},
+        zh:{b:'在 Visalia 充到 100%', body:'Three Rivers 與國家公園內基本上沒有超級充電站，而且上山非常耗電。上山前務必在 Valley Fuel Travel Plaza 充滿電。'}},
+      {cls:'f-blue', en:{b:'No cell service in the park', body:'Signal is very poor to none in Giant Forest and Lodgepole. Download offline Google Maps and your stops before Three Rivers.'},
+        zh:{b:'park 內無手機訊號', body:'Giant Forest 與 Lodgepole 一帶訊號極差甚至全無。請在 Three Rivers 之前先下載離線 Google 地圖與各站資料。'}},
+      {cls:'f-green', en:{b:'Friday timing works in your favor', body:'On weekends the Moro Rock/Crescent Meadow Road is shuttle-only. Aug 7 is a Friday, so you can drive it yourself — but lots fill by mid-morning; a free shuttle (8am–6pm) is the backup.'},
+        zh:{b:'週五出行剛剛好', body:'週末時 Moro Rock／Crescent Meadow 道路只准接駁車進入。8 月 7 日是週五，你可自行駕駛 — 但停車場上午就會滿；免費接駁車（8am–6pm）可作後備。'}},
+      {cls:'f-coral', en:{b:'$35 per vehicle · card only', body:'Sequoia & Kings Canyon entrance is $35/vehicle (7-day) or an America the Beautiful pass. The gate is cashless (card/phone only). No timed-entry reservation needed.'},
+        zh:{b:'每車 $35 · 只收卡', body:'Sequoia 與 Kings Canyon 入園每車 $35（7 天），或用 America the Beautiful 通行證。閘口不收現金（只限信用卡／手機）。無需預約時段入園。'}}
+    ]
+  },
+  snap:{
+    h2:{en:'Trip at a glance', zh:'行程速覽'},
+    sub:{en:'4 days · 3 nights at your Three Rivers Airbnb', zh:'4 天 · Three Rivers 民宿住 3 晚'},
+    cards:[
+      {val:'~230 mi', en:{lab:'🚗 Drive up (one way)', sub:'Monterey Park → Three Rivers'}, zh:{lab:'🚗 上山單程', sub:'Monterey Park → Three Rivers'}},
+      {val:'2 × 30 min', en:{lab:'🔋 Charge stops', sub:'Tejon + Visalia Superchargers'}, zh:{lab:'🔋 充電站', sub:'Tejon + Visalia 超充'}},
+      {val:'$35', en:{lab:'🎫 Park entry / vehicle', sub:'7-day · or ATB pass'}, zh:{lab:'🎫 入園費／車', sub:'7 天 · 或 ATB 通行證'}},
+      {val:'~6,400 ft', en:{lab:'🌲 Giant Forest elevation', sub:'Cool ~75–80°F vs valley heat'}, zh:{lab:'🌲 Giant Forest 海拔', sub:'約 75–80°F，比谷地涼'}}
+    ]
+  },
+  subhead:{ main:{en:'Main stops', zh:'主要停點'}, more:{en:'More in this area', zh:'周邊更多'}, stay:{en:'Where you sleep', zh:'住宿'} },
+  badge:{ extra:{en:'Optional', zh:'可選'} },
+  tag:{ stay:{en:'Your stay', zh:'你的住宿'} },
+  modal:{ info:{en:'More info ↗', zh:'更多資訊 ↗'}, maps:{en:'📍 Open in Google Maps', zh:'📍 在 Google 地圖開啟'}, note:{en:'Note', zh:'備註'} },
+  prac:{
+    h2:{en:'Good to know', zh:'實用須知'}, sub:{en:'Charging, heat & the park', zh:'充電、天氣與國家公園'},
+    cards:[
+      {en:{h4:'🔋 Charging plan', p:'Charge ~30 min at Tejon, then top to 100% at the Visalia Supercharger (6603 Betty Dr) before the climb — it’s the last fast charging. Ask your Airbnb host if you can plug into a standard outlet overnight; bring your Tesla mobile connector.'},
+       zh:{h4:'🔋 充電計劃', p:'在 Tejon 充約 30 分鐘，然後在 Visalia 超充（6603 Betty Dr）充到 100% 再上山 — 那是最後的快充。可問民宿房東能否用普通插座過夜慢充；記得帶 Tesla 隨車充電器。'}},
+      {en:{h4:'📵 Offline maps', p:'Cell service disappears past Three Rivers. Download offline Google Maps for the whole area and pin your stops before you lose signal.'},
+       zh:{h4:'📵 離線地圖', p:'過了 Three Rivers 就沒有訊號。請先下載整個區域的離線 Google 地圖，並在失去訊號前標好各站。'}},
+      {en:{h4:'🎫 Entry & cash', p:'Entrance is $35/vehicle (or America the Beautiful pass) and the gate takes card/phone only. Buy an America the Beautiful pass in advance if you visit parks often — it pays off fast.'},
+       zh:{h4:'🎫 入園與現金', p:'入園每車 $35（或用 America the Beautiful 通行證），閘口只收卡／手機。若常去國家公園，可先買 ATB 通行證，很快回本。'}},
+      {en:{h4:'🌡️ Heat & layers', p:'The valley (Visalia) often hits 95–105°F in August; Giant Forest at ~6,400 ft is much cooler (~75–80°F). Bring water, sun protection, and a light layer for the shade and higher trails.'},
+       zh:{h4:'🌡️ 高溫與衣物', p:'八月谷地（Visalia）常達 95–105°F；海拔約 6,400 呎的 Giant Forest 涼爽得多（約 75–80°F）。請帶水、防曬，以及一件薄外套應付樹蔭與高處步道。'}},
+      {en:{h4:'🚐 Shuttle & parking', p:'The free summer shuttle runs ~8am–6pm (May 22–Sep 7) around Giant Forest & Lodgepole. Museum and General Sherman lots fill by mid-morning — start early, or park at Lodgepole/Wolverton and shuttle in.'},
+       zh:{h4:'🚐 接駁車與停車', p:'免費夏季接駁車約 8am–6pm 運行（5/22–9/7），來往 Giant Forest 與 Lodgepole。博物館與 General Sherman 停車場上午就滿 — 請早出發，或停 Lodgepole／Wolverton 再搭接駁車。'}},
+      {en:{h4:'🍔 Food & water', p:'Fill up and eat at the Visalia plaza on the way in (Starbucks, Subway, Chester’s Chicken, Indian food; In-N-Out nearby). In-park food is limited to Lodgepole market and the Giant Forest area — carry snacks and plenty of water.'},
+       zh:{h4:'🍔 餐飲與飲水', p:'進山途中在 Visalia 廣場加餐（Starbucks、Subway、Chester’s Chicken、印度菜；附近有 In-N-Out）。park 內餐飲有限，主要在 Lodgepole 商店與 Giant Forest 一帶 — 請自備零食與充足飲水。'}}
+    ]
+  },
+  footer:{en:'Made for the Sequoia trip ● Aug 6–9, 2026 ● Distances are driving estimates; prices & park info verified for 2026 — confirm on official sites before you go.',
+          zh:'為 Sequoia 之旅製作 ● 2026年8月6–9日 ● 距離為駕駛估算；價格與園區資訊已就 2026 年核實 — 出發前請於官方網站確認。'}
+};
+
+/* ===== TRIP DATA ===== */
+const D=[
+{
+  d:"06", m:"Aug", wd:"Thursday · drive up", wd_zh:"週四 · 上山",
+  title:"LA → charge → Three Rivers", title_zh:"洛杉磯 → 充電 → Three Rivers",
+  drive:"~230 mi · ~4h drive + 2 charge stops", drive_zh:"約 230 英里 · 約 4 小時車程 + 2 次充電",
+  route:"Depart Monterey Park <b>~10:30 AM</b> after breakfast. Two Supercharger breaks on the way up (charge ~30 min each), then settle into the Three Rivers Airbnb by mid-afternoon.",
+  route_zh:"早餐後 <b>約上午 10:30</b> 從 Monterey Park 出發。上山途中兩次超充休息（各約 30 分鐘），下午稍早入住 Three Rivers 民宿。",
+  routeflag:{cls:'f-amber', html:"🔋 <b>Charging:</b> Tejon (~30 min) → Visalia, where you charge to <b>100%</b> before the mountains. Grab lunch at the Visalia plaza.",
+    html_zh:"🔋 <b>充電：</b> Tejon（約 30 分鐘）→ Visalia，在此充到 <b>100%</b> 再上山。順道在 Visalia 廣場吃午餐。"},
+  items:[
+    {name:"Supercharger — Outlets at Tejon", type:"Tesla Supercharger + food break", type_zh:"Tesla 超充 + 用餐休息", main:true, img:IMG.charger, link:"https://www.tesla.com/findus/location/supercharger/ArvinCAsupercharger", coords:"34.9797,-118.9407",
+     dist:"🚗 ~90 mi · 1h30m from home", dist_zh:"🚗 距家 約 90 英里 · 1 小時 30 分",
+     cost:"Supercharger ~$0.30–0.50/kWh", cost_zh:"超充 約 $0.30–0.50/kWh",
+     desc:"A large Tesla Supercharger right at the Outlets at Tejon on I-5 at the foot of the Grapevine — one of the biggest stations on the corridor, so stalls are rarely full. Perfect first 30-minute charge-and-eat: In-N-Out, Starbucks, Habit Burger, Chipotle, Firehouse Subs and a food court are all on-site.",
+     desc_zh:"位於 I-5 山腳 Outlets at Tejon 的大型 Tesla 超充 — 是這條路上最大的充電站之一，車位很少滿。最適合作第一次 30 分鐘充電兼用餐：In-N-Out、Starbucks、Habit Burger、Chipotle、Firehouse Subs 與美食廣場都在現場。"},
+    {name:"Supercharger — Valley Fuel Travel Plaza", type:"Tesla Supercharger · last fast charge", type_zh:"Tesla 超充 · 最後快充", main:true, img:IMG.charger, link:"https://www.valleyfueltravelplaza.com/", coords:"36.3550,-119.3340",
+     dist:"🚗 ~95 mi · 1h25m from Tejon", dist_zh:"🚗 距 Tejon 約 95 英里 · 1 小時 25 分",
+     cost:"Supercharger · charge to 100%", cost_zh:"超充 · 充到 100%",
+     desc:"A 24/7 Tesla Supercharger (19 stalls, 250 kW) at the Valley Fuel Travel Plaza just off CA-99 in Visalia — your last fast charging before Sequoia, so top off to 100%. Food within a short walk in the plaza: Starbucks, Subway, Chester’s Chicken and an Indian restaurant; In-N-Out, McDonald’s, Wendy’s, Carl’s Jr and Taco Bell are a 3–4 min drive away.",
+     desc_zh:"位於 Visalia、CA-99 旁 Valley Fuel Travel Plaza 的 24 小時 Tesla 超充（19 個車位、250 kW）— 是進 Sequoia 前最後的快充，請充到 100%。廣場內步行可達：Starbucks、Subway、Chester’s Chicken 及一間印度餐廳；In-N-Out、McDonald’s、Wendy’s、Carl’s Jr 與 Taco Bell 則在 3–4 分鐘車程外。"},
+    {name:"Three Rivers (your base town)", type:"Sierra gateway village on the Kaweah", type_zh:"Kaweah 河畔的山口小鎮", main:true, img:IMG.threeRivers, link:"https://threeriversvillage.com/", coords:"36.4380,-118.9020",
+     dist:"🚗 ~35 mi · 50 min from Visalia", dist_zh:"🚗 距 Visalia 約 35 英里 · 50 分鐘",
+     cost:"—", cost_zh:"—",
+     desc:"The last town before the Sequoia entrance, named for the three forks of the Kaweah River that meet here. It’s a small, artsy community of riverside dining, craft beer, local shops and painted murals — a relaxed place to land after the drive. Settle into your Airbnb on Blossom Dr and unwind by the river.",
+     desc_zh:"進入 Sequoia 前的最後一個小鎮，因 Kaweah 河三條支流在此匯合而得名。這是個小巧而富藝術氣息的社區，有河畔餐廳、精釀啤酒、在地小店與彩繪壁畫 — 開完車在此落腳最放鬆。入住 Blossom Dr 的民宿，在河邊好好休息。"},
+    {name:"River View Grill & Bar", type:"Riverside dinner option", type_zh:"河畔晚餐選擇", extra:true, img:IMG.kaweah, link:"https://www.yelp.com/biz/river-view-grill-and-bar-three-rivers", coords:"36.4488,-118.8836",
+     dist:"🚗 ~2 mi · 5 min in town", dist_zh:"🚗 鎮內 約 2 英里 · 5 分鐘",
+     cost:"Casual American ~$14–28", cost_zh:"美式簡餐 約 $14–28",
+     desc:"A family-owned restaurant right on the bank of the Kaweah River, with tables near the water and a cooled covered patio. American pub food, local craft beer on tap, and live bands on summer evenings — an easy first-night dinner.",
+     desc_zh:"一家就在 Kaweah 河畔的家庭式餐廳，桌位靠近水邊，設有涼爽的有蓋露台。美式酒館菜、在地精釀生啤，夏夜還有現場樂隊 — 適合作第一晚的晚餐。"}
+  ],
+  stay:[
+    {name:"Your Three Rivers Airbnb", name_zh:"你的 Three Rivers 民宿", type:"Airbnb · 3 nights", type_zh:"Airbnb 民宿 · 3 晚", img:IMG.kaweah, link:"https://maps.google.com/?q=41130+Blossom+Dr,+Three+Rivers,+CA+93271", coords:"36.4380,-118.9020",
+     meta:"41130 Blossom Dr — your base for 3 nights (Aug 6–8)", meta_zh:"41130 Blossom Dr — 3 晚據點（8/6–8/8）",
+     price:"Booked", price_zh:"已預訂",
+     park:"🔌 Ask the host whether you can charge from a standard outlet overnight (bring the Tesla mobile connector) — there is no Supercharger here.", park_zh:"🔌 問房東能否用普通插座過夜充電（帶 Tesla 隨車充電器）— 這裡沒有超充。",
+     desc:"Your booked home base in Three Rivers for three nights, a few minutes from the park entrance and the river. Confirm self-check-in details with your host, and check for any outlet you can trickle-charge from overnight.",
+     desc_zh:"你在 Three Rivers 預訂的三晚據點，距國家公園入口與河邊只需幾分鐘。請與房東確認自助入住細節，並看看有沒有可過夜慢充的插座。"}
+  ]
+},
+{
+  d:"07", m:"Aug", wd:"Friday · main park day", wd_zh:"週五 · 國家公園主日",
+  title:"Sequoia — Giant Forest & the big trees", title_zh:"Sequoia — Giant Forest 與巨杉",
+  drive:"Depart Airbnb ~9:00 AM · ~35 mi in-park", drive_zh:"民宿約上午 9:00 出發 · 園內約 35 英里",
+  route:"Head up Generals Highway from Three Rivers. I’ve put the stops in the smoothest driving order (the museum comes first as you climb, then Moro Rock / Tunnel Log, then Sherman & Lodgepole). It’s a full 8–10 hour day.",
+  route_zh:"從 Three Rivers 沿 Generals Highway 上山。我已把各站排成最順的行車次序（上山先到博物館，再去 Moro Rock／Tunnel Log，然後 Sherman 與 Lodgepole）。這是充實的 8–10 小時一天。",
+  routeflag:{cls:'f-green', html:"🅿️ <b>Friday = drive it yourself.</b> Moro Rock/Crescent Meadow Rd is open to cars today (shuttle-only on weekends). Lots fill by mid-morning — arrive early or use the free shuttle from the Giant Forest Museum.",
+    html_zh:"🅿️ <b>週五＝可自行駕駛。</b> Moro Rock／Crescent Meadow 道路今天開放車輛（週末只准接駁車）。停車場上午就滿 — 請早到，或從 Giant Forest Museum 搭免費接駁車。"},
+  items:[
+    {name:"Foothills Visitor Center", type:"Park entrance & info hub", type_zh:"入園與資訊中心", main:true, img:IMG.foothills, link:"https://www.nps.gov/seki/planyourvisit/foothills-visitor-center.htm", coords:"36.4869,-118.8730",
+     dist:"🚗 ~4 mi · 8 min from Airbnb", dist_zh:"🚗 距民宿 約 4 英里 · 8 分鐘",
+     cost:"$35/vehicle · 7-day pass", cost_zh:"每車 $35 · 7 天通行證",
+     desc:"The first visitor center just inside the Ash Mountain entrance — maps, ranger info, restrooms, and the one in-park spot that takes cash for passes. Check current road and shuttle conditions here before the climb.",
+     desc_zh:"進入 Ash Mountain 入口後的第一個遊客中心 — 地圖、遊騎兵資訊、洗手間，也是園內唯一收現金買通行證的地方。上山前先在此查看路況與接駁車資訊。"},
+    {name:"Giant Forest Museum", type:"Sequoia museum & trail hub", type_zh:"巨杉博物館與步道樞紐", main:true, img:IMG.gfMuseum, link:"https://www.nps.gov/seki/planyourvisit/giant-forest-museum.htm", coords:"36.5646,-118.7734",
+     dist:"🚗 ~16 mi · 40 min (switchbacks)", dist_zh:"🚗 約 16 英里 · 40 分鐘（盤山路）",
+     cost:"Free with park pass", cost_zh:"憑通行證免費",
+     desc:"A historic 1928 building with free exhibits on giant sequoia ecology and fire, at ~6,400 ft. It’s the hub of the Giant Forest — Big Trees Trail, Beetle Rock, the Moro Rock road and the summer shuttle stops all start here. Parking fills by mid-morning.",
+     desc_zh:"一棟 1928 年的歷史建築，設有關於巨杉生態與野火的免費展覽，海拔約 6,400 呎。它是 Giant Forest 的樞紐 — Big Trees Trail、Beetle Rock、Moro Rock 道路與夏季接駁車站都由此起。停車場上午就滿。"},
+    {name:"Moro Rock", type:"Granite dome climb (~350 steps)", type_zh:"花崗岩巨石攀登（約 350 級）", main:true, img:IMG.moro, link:"https://www.nps.gov/thingstodo/moro-rock.htm", coords:"36.5470,-118.7654",
+     dist:"🚗 ~2.5 mi · 10 min", dist_zh:"🚗 約 2.5 英里 · 10 分鐘",
+     cost:"Free with park pass", cost_zh:"憑通行證免費",
+     desc:"A ~0.25-mile stairway of about 350 steps (built by the CCC in the 1930s) climbing a granite dome to a 6,725-ft summit with sweeping views of the Great Western Divide and the foothills. Strenuous from the steps and altitude, but railings run the whole way.",
+     desc_zh:"一段約 0.25 英里、約 350 級的石階（1930 年代 CCC 修建），登上花崗岩巨石至 6,725 呎的頂端，飽覽 Great Western Divide 與山麓的壯闊景色。因階梯與高度而較吃力，但全程有欄杆。"},
+    {name:"Tunnel Log", type:"Drive-through fallen sequoia", type_zh:"可穿越的倒下巨杉", main:true, img:IMG.tunnelLog, link:"https://www.nps.gov/thingstodo/drive-through-tunnel-log.htm", coords:"36.5525,-118.7566",
+     dist:"🚗 ~1.5 mi · 5 min", dist_zh:"🚗 約 1.5 英里 · 5 分鐘",
+     cost:"Free with park pass", cost_zh:"憑通行證免費",
+     desc:"A giant sequoia that fell across the road in 1937; crews cut an 8-ft-high, 17-ft-wide tunnel through the trunk that cars still drive through today. The classic photo — drive your Tesla right through it (a bypass exists for taller vehicles).",
+     desc_zh:"一棵 1937 年倒在路上的巨杉；工作人員在樹幹上鑿出高 8 呎、寬 17 呎的隧道，至今車輛仍可穿過。經典照片 — 開你的 Tesla 直接穿過（高車另有繞道）。"},
+    {name:"General Sherman Tree", type:"World's largest tree by volume", type_zh:"全球體積最大的樹", main:true, img:IMG.sherman, link:"https://www.nps.gov/thingstodo/visit-the-general-sherman-tree.htm", coords:"36.5816,-118.7514",
+     dist:"🚗 ~5 mi · 18 min", dist_zh:"🚗 約 5 英里 · 18 分鐘",
+     cost:"Free with park pass", cost_zh:"憑通行證免費",
+     desc:"The largest known living single-stem tree on Earth by volume — about 275 ft tall, ~36 ft across the base, and over 2,200 years old. The main trail descends ~0.5 mi to its base (an uphill return at altitude); a separate accessible trail leaves from a lot on Generals Highway.",
+     desc_zh:"全球已知體積最大的單幹活樹 — 約 275 呎高、基部約 36 呎寬、樹齡逾 2,200 年。主步道下行約 0.5 英里至樹底（回程在高海拔上坡）；Generals Highway 旁另有一條無障礙步道。"},
+    {name:"Lodgepole Visitor Center", type:"Visitor center, market & trailhead", type_zh:"遊客中心、商店與步道口", main:true, img:IMG.lodgepole, link:"https://www.nps.gov/seki/planyourvisit/lodgepole-visitor-center.htm", coords:"36.6035,-118.7237",
+     dist:"🚗 ~2.5 mi · 8 min", dist_zh:"🚗 約 2.5 英里 · 8 分鐘",
+     cost:"Free with park pass", cost_zh:"憑通行證免費",
+     desc:"The main services hub in the higher forest along the Marble Fork of the Kaweah River — visitor center, market (snacks, groceries, gifts) and restrooms, plus overflow shuttle parking. The Tokopah Falls trail starts right here.",
+     desc_zh:"高處森林中沿 Kaweah 河 Marble Fork 的主要服務樞紐 — 遊客中心、商店（零食、雜貨、紀念品）與洗手間，另有接駁車溢流停車場。Tokopah Falls 步道就由此起。"},
+    {name:"Tunnel Rock", type:"Roadside photo stop", type_zh:"路邊拍照點", extra:true, img:IMG.tunnelRock, link:"https://www.nps.gov/seki/planyourvisit/foothills-area.htm", coords:"36.5216,-118.7998",
+     dist:"🚗 ~4.5 mi · 10 min (on the way up)", dist_zh:"🚗 上山途中 約 4.5 英里 · 10 分鐘",
+     cost:"Free with park pass", cost_zh:"憑通行證免費",
+     desc:"A large fallen granite slab forming a natural tunnel over the old road, built up by the CCC in the 1930s. The modern road bypasses it, so you park in the pullout and walk under it — a quick 5-minute leg-stretch just past the entrance.",
+     desc_zh:"一塊倒下的大花崗岩板，在舊路上形成天然隧道，1930 年代由 CCC 修築。現代道路已繞開，可停在路邊走到石下 — 剛過入口的 5 分鐘伸展一下。"},
+    {name:"Hospital Rock", type:"Native American pictographs", type_zh:"原住民岩畫", extra:true, img:IMG.hospital, link:"https://www.nps.gov/seki/planyourvisit/foothills-area.htm", coords:"36.5300,-118.7717",
+     dist:"🚗 ~2 mi · 5 min (on the way up)", dist_zh:"🚗 上山途中 約 2 英里 · 5 分鐘",
+     cost:"Free with park pass", cost_zh:"憑通行證免費",
+     desc:"A large boulder painted with red Monache (Western Mono) pictographs, ringed by bedrock grinding mortars where acorns were processed — once a significant Native village site. Interpretive signs explain it, and there’s a picnic area and restrooms across the road.",
+     desc_zh:"一塊大圓石上有紅色 Monache（西部 Mono）岩畫，四周是研磨橡實的岩臼 — 曾是重要的原住民村落。設有解說牌，對面有野餐區與洗手間。"},
+    {name:"Beetle Rock", type:"Granite viewpoint by the museum", type_zh:"博物館旁的花崗岩觀景點", extra:true, img:IMG.beetle, link:"https://www.nps.gov/seki/planyourvisit/giant-forest-museum.htm", coords:"36.5657,-118.7752",
+     dist:"🚶 across from Giant Forest Museum", dist_zh:"🚶 Giant Forest Museum 對面",
+     cost:"Free with park pass", cost_zh:"憑通行證免費",
+     desc:"A broad, gently sloping granite dome directly across from the Giant Forest Museum with open western views over the foothills — a favorite easy sunset spot, no hard hiking. Just walk out onto the rock (mind your footing near the edges).",
+     desc_zh:"就在 Giant Forest Museum 對面、寬闊平緩的花崗岩丘，向西可俯瞰山麓 — 最受歡迎的輕鬆看日落地點，無需辛苦健行。直接走上岩石即可（近邊緣請留意腳步）。"},
+    {name:"Big Trees Trail", type:"Easy accessible sequoia loop", type_zh:"輕鬆無障礙巨杉環道", extra:true, img:IMG.bigTrees, link:"https://www.nps.gov/seki/planyourvisit/big-trees-trail.htm", coords:"36.5680,-118.7690",
+     dist:"🚶 by the Giant Forest Museum", dist_zh:"🚶 Giant Forest Museum 旁",
+     cost:"Free with park pass", cost_zh:"憑通行證免費",
+     desc:"A flat, paved ~0.7-mile loop around Round Meadow ringed by giant sequoias, with interpretive signs — the park’s most accessible sequoia walk (wheelchair/stroller friendly). On busy days park at the museum and walk or shuttle in.",
+     desc_zh:"環繞 Round Meadow、約 0.7 英里的平坦鋪面環道，四周是巨杉並設有解說牌 — 園內最易到達的巨杉步道（適合輪椅／嬰兒車）。人多時停在博物館再步行或搭接駁車進入。"},
+    {name:"Crescent Meadow", type:"Meadow loop & historic Tharp's Log", type_zh:"草甸環道與歷史 Tharp’s Log", extra:true, img:IMG.crescent, link:"https://www.nps.gov/thingstodo/hike-to-crescent-meadow.htm", coords:"36.5548,-118.7480",
+     dist:"🚗 ~1 mi · 4 min from Tunnel Log", dist_zh:"🚗 距 Tunnel Log 約 1 英里 · 4 分鐘",
+     cost:"Free with park pass", cost_zh:"憑通行證免費",
+     desc:"A lush meadow John Muir called the “Gem of the Sierra,” rimmed by an easy ~1.6-mile loop. A short extension reaches Tharp’s Log, a hollowed fallen sequoia used as a cabin in the 1860s. Also the western trailhead of the High Sierra Trail.",
+     desc_zh:"John Muir 稱之為「內華達山的明珠」的翠綠草甸，環繞一條約 1.6 英里的輕鬆環道。稍作延伸可達 Tharp’s Log — 一棵 1860 年代被當作小屋的空心倒杉。也是 High Sierra Trail 的西端起點。"},
+    {name:"Tokopah Falls", type:"Waterfall day-hike (3.8 mi RT)", type_zh:"瀑布一日健行（來回 3.8 英里）", extra:true, img:IMG.tokopah, link:"https://www.nps.gov/thingstodo/hike-to-tokopah-falls.htm", coords:"36.6060,-118.6870",
+     dist:"🥾 3.8 mi round-trip from Lodgepole", dist_zh:"🥾 由 Lodgepole 來回 3.8 英里",
+     cost:"Free with park pass", cost_zh:"憑通行證免費",
+     desc:"A moderate ~3.8-mile round-trip from Lodgepole Campground following the Marble Fork to a 1,200-ft granite cascade beneath the Watchtower cliff. Flow is lighter by August but the river-and-granite scenery is excellent; allow ~2.5–3 hours and watch for marmots.",
+     desc_zh:"由 Lodgepole 營地出發、約 3.8 英里來回的中等步道，沿 Marble Fork 抵達 Watchtower 崖下 1,200 呎的花崗岩瀑布。八月水量較小，但河流與花崗岩景色極佳；預留約 2.5–3 小時，留意土撥鼠。"}
+  ],
+  stay:[
+    {name:"Same Three Rivers Airbnb (night 2)", name_zh:"同一 Three Rivers 民宿（第二晚）", type:"Airbnb", type_zh:"Airbnb 民宿", img:IMG.kaweah, link:"https://maps.google.com/?q=41130+Blossom+Dr,+Three+Rivers,+CA+93271", coords:"36.4380,-118.9020",
+     meta:"41130 Blossom Dr — no packing tonight", meta_zh:"41130 Blossom Dr — 今晚不用收拾",
+     price:"Booked", price_zh:"已預訂",
+     park:"🔌 Trickle-charge overnight if your host has an outlet available.", park_zh:"🔌 若房東有插座，可過夜慢充。",
+     desc:"You’re staying put in Three Rivers for the second night — cook in, or head to River View Grill by the river.",
+     desc_zh:"第二晚仍住 Three Rivers — 可自己下廚，或到河邊的 River View Grill。"}
+  ]
+},
+{
+  d:"08", m:"Aug", wd:"Saturday · your choice", wd_zh:"週六 · 由你選擇",
+  title:"Kings Canyon — or a chill day", title_zh:"Kings Canyon — 或悠閒一天",
+  drive:"Two ways to spend the day", drive_zh:"兩種過法",
+  route:"A flexible day. <b>Option A</b> is a big drive up to Kings Canyon and the General Grant Tree; <b>Option B</b> is a relaxed day around Three Rivers, the river and Lake Kaweah. Pick based on energy and the heat.",
+  route_zh:"彈性的一天。<b>方案 A</b> 是長途上 Kings Canyon 看 General Grant Tree；<b>方案 B</b> 是在 Three Rivers、河邊與 Lake Kaweah 悠閒度過。視體力與天氣而定。",
+  routeflag:{cls:'f-blue', html:"🚗 <b>Note:</b> Option A is ~50 mi / ~1h40m each way and it’s a Saturday — expect crowds. Kings Canyon uses the same park pass. Option B keeps it low-key and close to home.",
+    html_zh:"🚗 <b>備註：</b> 方案 A 單程約 50 英里／約 1 小時 40 分，而且是週六 — 人會多。Kings Canyon 用同一張通行證。方案 B 則輕鬆就近。"},
+  mainLabel:{en:'Option A · Kings Canyon', zh:'方案 A · Kings Canyon'},
+  moreLabel:{en:'Option B · Relaxed near Three Rivers', zh:'方案 B · Three Rivers 悠閒遊'},
+  items:[
+    {name:"General Grant Tree", type:"The “Nation’s Christmas Tree”", type_zh:"「國家聖誕樹」", main:true, img:IMG.grant, link:"https://www.nps.gov/thingstodo/general-grant-tree.htm", coords:"36.7477,-118.9714",
+     dist:"🚗 ~50 mi · 1h40m each way", dist_zh:"🚗 單程 約 50 英里 · 1 小時 40 分",
+     cost:"Free with park pass", cost_zh:"憑通行證免費",
+     desc:"The world’s second-largest tree by volume, 268 ft tall — declared the “Nation’s Christmas Tree” in 1926 and a National Shrine (a living war memorial) in 1956. A paved ~0.5-mile loop leads to it through Grant Grove.",
+     desc_zh:"全球體積第二大的樹，高 268 呎 — 1926 年獲封「國家聖誕樹」，1956 年成為國家聖地（活的戰爭紀念）。一條約 0.5 英里的鋪面環道穿過 Grant Grove 通往它。"},
+    {name:"Kings Canyon Visitor Center (Grant Grove)", type:"Visitor center & village", type_zh:"遊客中心與村莊", main:true, img:IMG.grantGrove, link:"https://www.nps.gov/seki/planyourvisit/visitorcenters.htm", coords:"36.7391,-118.9633",
+     dist:"🚗 ~48 mi · 1h35m from Airbnb", dist_zh:"🚗 距民宿 約 48 英里 · 1 小時 35 分",
+     cost:"Free with park pass", cost_zh:"憑通行證免費",
+     desc:"The visitor center at Grant Grove Village (open ~9am–5pm in summer) has sequoia exhibits, a park film, maps and restrooms, and the village has a market, restaurant and lodge — the practical base for exploring Grant Grove.",
+     desc_zh:"位於 Grant Grove Village 的遊客中心（夏季約 9am–5pm），設有巨杉展覽、園區影片、地圖與洗手間；村內有商店、餐廳與旅館 — 探索 Grant Grove 的實用據點。"},
+    {name:"Kings Canyon Scenic Byway", type:"Dramatic canyon drive (long add-on)", type_zh:"壯麗峽谷公路（較長加碼）", main:true, img:IMG.kingsView, link:"https://www.nps.gov/seki/planyourvisit/byways.htm", coords:"36.7900,-118.9000",
+     dist:"🚗 +30 mi · ~1h beyond Grant Grove", dist_zh:"🚗 由 Grant Grove 再 +30 英里 · 約 1 小時",
+     cost:"Free with park pass", cost_zh:"憑通行證免費",
+     desc:"CA-180 descends along the Kings River into one of North America’s deepest canyons, with overlooks like Junction View, ending near Cedar Grove/Roads End. It’s a spectacular but long add-on — about an hour of winding driving each way beyond Grant Grove, so only add it if you start early.",
+     desc_zh:"CA-180 沿 Kings 河下行進入北美最深的峽谷之一，沿途有 Junction View 等觀景點，終於 Cedar Grove／Roads End 附近。景色壯麗但路程長 — 由 Grant Grove 起單程約一小時的蜿蜒山路，宜早出發才加。"},
+    {name:"Lake Kaweah", type:"Reservoir · swim, kayak, picnic", type_zh:"水庫 · 游泳、划艇、野餐", extra:true, img:IMG.terminus, link:"https://www.spk.usace.army.mil/Locations/Sacramento-District-Parks/Lake-Kaweah/", coords:"36.3870,-118.9560",
+     dist:"🚗 ~5 mi · 10 min from Airbnb", dist_zh:"🚗 距民宿 約 5 英里 · 10 分鐘",
+     cost:"~$5/vehicle day-use", cost_zh:"約 $5/車 日用費",
+     desc:"A reservoir on CA-198 behind the 255-ft Terminus Dam, with swimming, kayaking, fishing and picnicking, plus a marina that rents watercraft. Water levels drop through late summer, so the shoreline shifts — an easy, cooling stop close to town. (Not covered by the park pass.)",
+     desc_zh:"CA-198 上、255 呎 Terminus Dam 後的水庫，可游泳、划艇、釣魚與野餐，還有可租船的碼頭。夏末水位下降，岸線會變 — 就近又消暑的一站。（不含在園區通行證內。）"},
+    {name:"Slick Rock Recreation Area", type:"River boulders & swimming holes", type_zh:"河石與天然泳池", extra:true, img:IMG.kaweah, link:"https://www.spk.usace.army.mil/Locations/Sacramento-District-Parks/Lake-Kaweah/", coords:"36.4030,-118.9330",
+     dist:"🚗 ~3 mi · 7 min from Airbnb", dist_zh:"🚗 距民宿 約 3 英里 · 7 分鐘",
+     cost:"Free / small day-use fee", cost_zh:"免費／少量日用費",
+     desc:"Known to climbers as “The Boulder Beach,” a field of smooth granite boulders on the Kaweah River forming natural water slides, swimming holes and sunbathing spots. A popular, low-key summer spot — it gets hot and busy midday, so go earlier.",
+     desc_zh:"攀岩者稱之為「巨石灘」，Kaweah 河上一片光滑花崗岩巨石，形成天然滑水道、泳池與曬太陽的地方。夏日熱門而低調 — 中午又熱又擠，宜早去。"},
+    {name:"Three Rivers murals & downtown", type:"Small-town main street & art", type_zh:"小鎮主街與公共藝術", extra:true, img:IMG.threeRivers, link:"https://threeriversvillage.com/", coords:"36.4380,-118.9020",
+     dist:"🚶 in town", dist_zh:"🚶 鎮內",
+     cost:"Free", cost_zh:"免費",
+     desc:"Sierra Drive is the walkable main strip — galleries, cafés, tasting rooms and local shops, dotted with murals and sculptures that reflect the mountain-gateway community. An easy stroll for coffee, ice cream and browsing before or after river time.",
+     desc_zh:"Sierra Drive 是可步行的主街 — 畫廊、咖啡館、品酒室與在地小店，點綴著反映山口社區的壁畫與雕塑。玩水前後散步喝咖啡、吃冰、逛逛都很輕鬆。"}
+  ],
+  stay:[
+    {name:"Same Three Rivers Airbnb (night 3)", name_zh:"同一 Three Rivers 民宿（第三晚）", type:"Airbnb", type_zh:"Airbnb 民宿", img:IMG.kaweah, link:"https://maps.google.com/?q=41130+Blossom+Dr,+Three+Rivers,+CA+93271", coords:"36.4380,-118.9020",
+     meta:"41130 Blossom Dr — last night", meta_zh:"41130 Blossom Dr — 最後一晚",
+     price:"Booked", price_zh:"已預訂",
+     park:"🔌 Charge overnight if you can, so you start the drive home with good range.", park_zh:"🔌 可以的話過夜充電，讓回程有充足電量。",
+     desc:"Your final night in Three Rivers. Pack up loosely tonight so you can roll out efficiently in the morning for the drive home.",
+     desc_zh:"在 Three Rivers 的最後一晚。今晚先大致收拾，明早好順利出發回家。"}
+  ]
+},
+{
+  d:"09", m:"Aug", wd:"Sunday · drive home", wd_zh:"週日 · 回程",
+  title:"Three Rivers → home", title_zh:"Three Rivers → 回家",
+  drive:"~230 mi · reverse route + charging", drive_zh:"約 230 英里 · 原路返回 + 充電",
+  route:"Head home the way you came, charging again at Visalia and Tejon. Two easy add-ons break up the drive: the mural town of Exeter, and the Outlets at Tejon for lunch and shopping while you charge.",
+  route_zh:"沿原路回家，在 Visalia 與 Tejon 再充電。兩個輕鬆的加碼可讓行程有變化：壁畫小鎮 Exeter，以及在 Outlets at Tejon 一邊充電一邊吃午餐、逛街。",
+  routeflag:{cls:'f-amber', html:"🔋 <b>Charging home:</b> start with good range from Three Rivers, charge at the Visalia Supercharger, then again at Tejon on the way down. Fill up before the long I-5 stretch home.",
+    html_zh:"🔋 <b>回程充電：</b> 從 Three Rivers 出發時電量要足，先在 Visalia 超充，下山時再於 Tejon 充一次。上長段 I-5 回家前先充飽。"},
+  items:[
+    {name:"Lake Kaweah (leaving town)", type:"Quick lakeside stop on CA-198", type_zh:"CA-198 上的湖畔小停", extra:true, img:IMG.terminus, link:"https://www.spk.usace.army.mil/Locations/Sacramento-District-Parks/Lake-Kaweah/", coords:"36.3870,-118.9560",
+     dist:"🚗 ~5 mi · 10 min from Airbnb", dist_zh:"🚗 距民宿 約 5 英里 · 10 分鐘",
+     cost:"Free viewpoint", cost_zh:"觀景免費",
+     desc:"Right on your way out of Three Rivers — a quick photo pull-off at the reservoir behind Terminus Dam before you drop into the valley. A nice last look at the Sierra foothills.",
+     desc_zh:"就在離開 Three Rivers 的路上 — 下到谷地前，在 Terminus Dam 後的水庫快速停車拍照。最後再望一眼內華達山麓。"},
+    {name:"Exeter murals", type:"Historic mural town (short detour)", type_zh:"歷史壁畫小鎮（小繞道）", extra:true, img:IMG.exeter, link:"https://www.exeterchamber.com/exeter-murals", coords:"36.2960,-119.1420",
+     dist:"🚗 ~24 mi · 30 min (15-min detour)", dist_zh:"🚗 約 24 英里 · 30 分鐘（繞道約 15 分）",
+     cost:"Free", cost_zh:"免費",
+     desc:"A former citrus-packing town whose historic downtown has 30+ professional murals depicting the region’s farming heritage and Sierra scenery. A posted map guides a short self-guided walk — a photogenic leg-stretch and coffee/brunch stop off CA-198.",
+     desc_zh:"一座昔日的柑橘包裝小鎮，歷史街區有 30 多幅專業壁畫，描繪當地農業傳統與內華達山景。設有地圖引導短程自助漫步 — CA-198 旁上鏡的伸展兼喝咖啡／早午餐的一站。"},
+    {name:"Supercharger — Valley Fuel, Visalia", type:"Tesla Supercharger + food", type_zh:"Tesla 超充 + 餐飲", main:true, img:IMG.charger, link:"https://www.valleyfueltravelplaza.com/", coords:"36.3550,-119.3340",
+     dist:"🚗 ~40 mi · 50 min from Three Rivers", dist_zh:"🚗 距 Three Rivers 約 40 英里 · 50 分鐘",
+     cost:"Supercharger ~$0.30–0.50/kWh", cost_zh:"超充 約 $0.30–0.50/kWh",
+     desc:"Your first charge on the way home, back at the 24/7 Valley Fuel plaza — grab a coffee or a bite (Starbucks, Subway, Chester’s Chicken, Indian food) while you charge, then get on CA-99 south.",
+     desc_zh:"回程的第一次充電，回到 24 小時的 Valley Fuel 廣場 — 充電時喝杯咖啡或吃點東西（Starbucks、Subway、Chester’s Chicken、印度菜），然後上 CA-99 南下。"},
+    {name:"Outlets at Tejon", type:"Lunch, shopping + charge stop", type_zh:"午餐、購物 + 充電", main:true, img:IMG.charger, link:"https://tejonoutlets.com/", coords:"34.9797,-118.9407",
+     dist:"🚗 ~95 mi · 1h25m from Visalia", dist_zh:"🚗 距 Visalia 約 95 英里 · 1 小時 25 分",
+     cost:"Free (shopping/food extra)", cost_zh:"免費（購物／餐飲另計）",
+     desc:"An open-air outlet center of ~60 brand stores (Nike, Levi’s, Kate Spade, Banana Republic Factory and more) right at the I-5 Supercharger — a natural last break. Charge, have lunch (In-N-Out, Chipotle, Habit, Starbucks nearby), shop, then finish the drive home.",
+     desc_zh:"約 60 間品牌店的露天暢貨中心（Nike、Levi’s、Kate Spade、Banana Republic Factory 等），就在 I-5 超充旁 — 最自然的最後一站。充電、吃午餐（附近有 In-N-Out、Chipotle、Habit、Starbucks）、逛街，再開完回家的路。"}
+  ],
+  stay:[]
+}
+];
+
+/* ===== RENDER ===== */
+const $ = s => document.querySelector(s);
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/'/g,'&#39;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function enc(o){ return esc(JSON.stringify(o)); }
+function thumb(u,w){ const m=u&&u.match(/^(https:\/\/upload\.wikimedia\.org\/wikipedia\/commons)\/([0-9a-f])\/([0-9a-f]{2})\/(.+)$/); return m?`${m[1]}/thumb/${m[2]}/${m[3]}/${m[4]}/${w}px-${m[4]}`:u; }
+
+function card(it){
+  const badge = it.extra ? `<span class="pill">${p(UI.badge.extra)}</span>` : '';
+  const t = it.img ? thumb(it.img,1280) : '';
+  const bg = t ? `style="background-image:url('${t}')"` : '';
+  const nm = dz(it,'name');
+  const dist = dz(it,'dist');
+  return `<button class="card" data-it='${enc(it)}'>
+    <div class="thumb" ${bg} ${it.img?`data-full="${it.img}"`:''} data-name="${esc(nm)}"></div>
+    <div class="cbody"><div class="cname">${esc(nm)}</div><div class="ctype">${esc(dz(it,'type'))}</div>
+    ${dist?`<div class="cdist">${esc(dist)}</div>`:''}
+    ${it.cost&&it.cost!=='—'?`<span class="ccost">${esc(dz(it,'cost'))}</span>`:''}</div>${badge}</button>`;
+}
+function stayCard(h){
+  const t = h.img?thumb(h.img,1280):'';
+  const bg = t?`style="background-image:url('${t}')"`:'';
+  return `<button class="stay" data-it='${enc({...h,isStay:true})}'>
+    <div class="hthumb" ${bg} ${h.img?`data-full="${h.img}"`:''}></div>
+    <div class="hbody"><span class="tag">${p(UI.tag.stay)}</span>
+    <div class="hname">${esc(dz(h,'name'))}</div><div class="hmeta">${esc(dz(h,'meta'))}</div>
+    <div class="hprice">${esc(dz(h,'price'))}</div>
+    <div class="hpark"><span>🔌</span><span>${esc(dz(h,'park'))}</span></div></div></button>`;
+}
+
+function renderHero(){
+  $("#heroBg").style.backgroundImage=`url('${thumb(IMG.crescent,1280)}')`;
+  const h=UI.hero;
+  $("#heroInner").innerHTML=`<div class="eyebrow">${p(h.eyebrow)}</div><h1>${p(h.h1)}</h1><p class="sub">${p(h.sub)}</p>
+    <div class="hero-stats">${p(h.stats).map(s=>`<span class="stat">${s}</span>`).join('')}</div>`;
+}
+function renderHeads(){
+  const h=UI.heads;
+  $("#heads").innerHTML=`<h3>${p(h.title)}</h3><p class="lead">${p(h.lead)}</p>
+    <div class="flaglist">${h.flags.map(f=>`<div class="flag ${f.cls}"><b>${p({en:f.en.b,zh:f.zh.b})}</b>${p({en:f.en.body,zh:f.zh.body})}</div>`).join('')}</div>`;
+}
+function renderSnap(){
+  const c=UI.snap;
+  const cards=c.cards.map(cc=>`<div class="snap-card"><div class="lab">${p({en:cc.en.lab,zh:cc.zh.lab})}</div><div class="val">${cc.val}</div><div class="sub">${p({en:cc.en.sub,zh:cc.zh.sub})}</div></div>`).join('');
+  $("#snapWrap").innerHTML=`<div class="sec-head"><h2>${p(c.h2)}</h2><p>${p(c.sub)}</p></div><div class="snap-grid">${cards}</div>`;
+}
+function renderDays(){
+  const days=$("#days"), nav=$("#daynav"); days.innerHTML=''; nav.innerHTML='';
+  D.forEach((day,i)=>{
+    const mains=(day.items||[]).filter(x=>!x.extra);
+    const extras=(day.items||[]).filter(x=>x.extra);
+    const mainLbl = day.mainLabel ? p(day.mainLabel) : p(UI.subhead.main);
+    const moreLbl = day.moreLabel ? p(day.moreLabel) : p(UI.subhead.more);
+    let html=`<div class="day" id="day${i}">
+      <div class="day-head">
+        <div class="day-badge"><span class="d">${day.d}</span><span class="m">${day.m}</span></div>
+        <div class="ttl"><h3>${esc(dz(day,'title'))}</h3><div class="wd">${esc(dz(day,'wd'))}</div></div>
+        <div class="drive">🚗 ${esc(dz(day,'drive'))}</div>
+      </div>
+      <div class="day-body"><p class="route">${dz(day,'route')}</p>
+      ${day.routeflag?`<div class="routeflag ${day.routeflag.cls}">${LANG==='zh'?day.routeflag.html_zh:day.routeflag.html}</div>`:''}`;
+    if(mains.length){ html+=`<div class="subhead">${mainLbl}</div><div class="items">${mains.map(card).join('')}</div>`; }
+    if(extras.length){ html+=`<div class="subhead">${moreLbl}</div><div class="items compact">${extras.map(card).join('')}</div>`; }
+    if(day.stay && day.stay.length){ html+=`<div class="subhead">${p(UI.subhead.stay)}</div>${day.stay.map(stayCard).join('')}`; }
+    html+=`</div></div>`;
+    days.insertAdjacentHTML('beforeend', html);
+    nav.insertAdjacentHTML('beforeend', `<a href="#day${i}">${LANG==='zh'?`${MNUM[day.m]}/${parseInt(day.d,10)}`:`${day.m} ${parseInt(day.d,10)}`}</a>`);
+  });
+  // two-tier image loader: thumb -> full -> gradient
+  document.querySelectorAll('.thumb[data-full],.hthumb[data-full]').forEach(el=>{
+    const cur=el.style.backgroundImage.slice(5,-2), full=el.dataset.full;
+    const probe=new Image();
+    probe.onerror=()=>{ if(full&&full!==cur){ el.style.backgroundImage=`url('${full}')`; const f=new Image(); f.onerror=()=>el.closest('.card,.stay')?.classList.add('noimg'); f.src=full; } else { el.closest('.card,.stay')?.classList.add('noimg'); } };
+    probe.src=cur;
+  });
+}
+function renderPrac(){
+  const c=UI.prac;
+  $("#pracWrap").innerHTML=`<div class="sec-head"><h2>${p(c.h2)}</h2><p>${p(c.sub)}</p></div>
+    <div class="prac-grid">${c.cards.map(cc=>`<div class="prac"><h4>${p({en:cc.en.h4,zh:cc.zh.h4})}</h4><p>${p({en:cc.en.p,zh:cc.zh.p})}</p></div>`).join('')}</div>`;
+}
+function renderFooter(){ $("#footer").innerHTML=p(UI.footer); }
+
+function renderAll(){
+  document.documentElement.lang = LANG==='zh'?'zh-Hant':'en';
+  renderHero(); renderHeads(); renderSnap(); renderDays(); renderPrac(); renderFooter();
+  document.querySelectorAll('#langToggle button').forEach(b=>b.classList.toggle('active', b.dataset.l===LANG));
+}
+
+/* ===== MODAL ===== */
+const mb=$("#modalBg");
+function openModal(it){
+  const mImg=$("#mImg");
+  mImg.style.backgroundImage = it.img?`url('${it.img}')`:'';
+  mImg.classList.toggle('noimg', !it.img);
+  $("#mType").textContent = dz(it,'type')||'';
+  $("#mName").textContent = dz(it,'name');
+  const cost = it.isStay ? dz(it,'price') : dz(it,'cost');
+  const dist = dz(it,'dist');
+  let meta='';
+  if(dist) meta+=`<span>${esc(dist)}</span>`;
+  if(cost && cost!=='—') meta+=`<span class="mcost">${esc(cost)}</span>`;
+  $("#mMeta").innerHTML=meta;
+  $("#mDesc").textContent = dz(it,'desc')||'';
+  const pk=$("#mPark");
+  if(it.isStay && (it.park||it.park_zh)){ pk.style.display='block'; pk.innerHTML=esc(dz(it,'park')); }
+  else pk.style.display='none';
+  $("#mActions").innerHTML=`<a class="btn primary" href="${it.link}" target="_blank" rel="noopener">${p(UI.modal.info)}</a>
+    <a class="btn" href="https://www.google.com/maps/search/?api=1&query=${it.coords}" target="_blank" rel="noopener">${p(UI.modal.maps)}</a>`;
+  $("#mMap").innerHTML=`<iframe loading="lazy" src="https://maps.google.com/maps?q=${it.coords}&z=12&output=embed" title="map"></iframe>`;
+  mb.classList.add('open'); document.body.style.overflow='hidden';
+}
+function closeModal(){ mb.classList.remove('open'); $("#mMap").innerHTML=''; document.body.style.overflow=''; }
+document.body.addEventListener('click', e=>{ const c=e.target.closest('[data-it]'); if(c) openModal(JSON.parse(c.getAttribute('data-it'))); });
+$("#mClose").addEventListener('click', closeModal);
+mb.addEventListener('click', e=>{ if(e.target===mb) closeModal(); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
+
+$("#langToggle").addEventListener('click', e=>{ const b=e.target.closest('button'); if(!b)return; if(b.dataset.l!==LANG){ LANG=b.dataset.l; closeModal(); renderAll(); } });
+const lt=$("#langToggle");
+window.addEventListener('scroll', ()=>{ lt.classList.toggle('scrolled', window.scrollY>80); }, {passive:true});
+
+renderAll();
+</script>
+</body>
+</html>
