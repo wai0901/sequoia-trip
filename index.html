@@ -190,6 +190,20 @@ const MNUM={Aug:8};
 const p = o => (o && o[LANG]!=null) ? o[LANG] : (o?o.en:'');
 const dz = (o,f) => (LANG==='zh' && o[f+'_zh']!=null) ? o[f+'_zh'] : o[f];
 
+/* exact Google Maps pins (keyed by coords) — opens the precise location */
+const GMAP={
+  "34.9797,-118.9407":"https://maps.app.goo.gl/wR1dESedQZm97SsBA",   /* Outlets at Tejon Supercharger */
+  "36.3550,-119.3340":"https://maps.app.goo.gl/WxkaVLg1eJRBcYNM9",   /* Valley Fuel Travel Plaza Supercharger */
+  "36.4380,-118.9020":"https://maps.app.goo.gl/XhxzVHcn6AUptAyq6",   /* Three Rivers Airbnb */
+  "36.4869,-118.8730":"https://maps.app.goo.gl/ybWJwLLdtL7Sj2Sa9",   /* Foothills Visitor Center */
+  "36.5470,-118.7654":"https://maps.app.goo.gl/bvVToMCaZVGVQdJ4A",   /* Moro Rock */
+  "36.5525,-118.7566":"https://maps.app.goo.gl/Hc88xDAXzebN3dfM6",   /* Tunnel Log */
+  "36.5646,-118.7734":"https://maps.app.goo.gl/cygAWMPxSpcWQpHU6",   /* Giant Forest Museum */
+  "36.5816,-118.7514":"https://maps.app.goo.gl/2hmYcin5ryRD23eK8",   /* General Sherman Tree */
+  "36.6035,-118.7237":"https://maps.app.goo.gl/xHuqfhTovWvNWKU29",   /* Lodgepole Visitor Center */
+  "36.7391,-118.9633":"https://maps.app.goo.gl/xoKv1kDB9nMPRAr26"    /* Kings Canyon Visitor Center */
+};
+
 /* ===== IMAGES (confirmed Commons originals; JS serves fast thumbs w/ fallback) ===== */
 const IMG={
   crescent:"https://upload.wikimedia.org/wikipedia/commons/a/af/Sequoia_from_Crescent_Meadow_%2819747514991%29.jpg",
@@ -584,9 +598,10 @@ function openModal(it){
   const pk=$("#mPark");
   if(it.isStay && (it.park||it.park_zh)){ pk.style.display='block'; pk.innerHTML=esc(dz(it,'park')); }
   else pk.style.display='none';
+  const mapsUrl = GMAP[it.coords] || ('https://www.google.com/maps/search/?api=1&query='+it.coords);
   $("#mActions").innerHTML=`<a class="btn primary" href="${it.link}" target="_blank" rel="noopener">${p(UI.modal.info)}</a>
-    <a class="btn" href="https://www.google.com/maps/search/?api=1&query=${it.coords}" target="_blank" rel="noopener">${p(UI.modal.maps)}</a>`;
-  $("#mMap").innerHTML=`<iframe loading="lazy" src="https://maps.google.com/maps?q=${it.coords}&z=12&output=embed" title="map"></iframe>`;
+    <a class="btn" href="${mapsUrl}" target="_blank" rel="noopener">${p(UI.modal.maps)}</a>`;
+  $("#mMap").innerHTML=`<iframe loading="lazy" src="https://maps.google.com/maps?q=${it.coords}&z=15&output=embed" title="map"></iframe>`;
   mb.classList.add('open'); document.body.style.overflow='hidden';
 }
 function closeModal(){ mb.classList.remove('open'); $("#mMap").innerHTML=''; document.body.style.overflow=''; }
